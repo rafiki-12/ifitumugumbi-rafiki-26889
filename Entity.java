@@ -1,3 +1,4 @@
+
 import java.util.Date;
 
 public class Entity {
@@ -5,12 +6,12 @@ public class Entity {
     private Date createdDate;
     private Date updatedDate;
     
-    public Entity(int id, Date createdDate, Date updatedDate) throws SchoolDataException {
+    public Entity(int id, Date createdDate, Date updatedDate) throws PayrollDataException {
         if (id <= 0) {
-            throw new SchoolDataException("ID must be greater than 0");
+            throw new PayrollDataException("ID must be greater than 0");
         }
         if (createdDate == null || updatedDate == null) {
-            throw new SchoolDataException("Dates cannot be null");
+            throw new PayrollDataException("Dates cannot be null");
         }
         
         this.id = id;
@@ -23,9 +24,9 @@ public class Entity {
     public Date getCreatedDate() { return createdDate; }
     public Date getUpdatedDate() { return updatedDate; }
     
-    public void setUpdatedDate(Date updatedDate) throws SchoolDataException {
+    public void setUpdatedDate(Date updatedDate) throws PayrollDataException {
         if (updatedDate == null) {
-            throw new SchoolDataException("Updated date cannot be null");
+            throw new PayrollDataException("Updated date cannot be null");
         }
         this.updatedDate = updatedDate;
     }
