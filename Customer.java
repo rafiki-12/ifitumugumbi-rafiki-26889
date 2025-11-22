@@ -2,28 +2,28 @@
 import java.util.Date;
 import java.util.regex.Pattern;
 
-public class Customer extends Room {
+public class Customer extends Account {
     private String customerName;
-    private String customerEmail;
-    private String contactNumber;
+    private String email;
+    private String phoneNumber;
     
-    public Customer(int id, Date createdDate, Date updatedDate, String hotelName, 
-                    String address, String phoneNumber, String email, String roomNumber, 
-                    String roomType, double pricePerNight, String customerName, 
-                    String customerEmail, String contactNumber) throws HotelDataException {
-        super(id, createdDate, updatedDate, hotelName, address, phoneNumber, email, 
-              roomNumber, roomType, pricePerNight);
+    public Customer(int id, Date createdDate, Date updatedDate, String bankName, 
+                    String branchCode, String address, String accountNumber, 
+                    String accountType, double balance, String customerName, 
+                    String email, String phoneNumber) throws BankingDataException {
+        super(id, createdDate, updatedDate, bankName, branchCode, address, 
+              accountNumber, accountType, balance);
         
-        if (!isValidEmail(customerEmail)) {
-            throw new HotelDataException("Invalid customer email format");
+        if (!isValidEmail(email)) {
+            throw new BankingDataException("Invalid email format");
         }
-        if (!isValidPhone(contactNumber)) {
-            throw new HotelDataException("Customer contact number must be valid");
+        if (!isValidPhone(phoneNumber)) {
+            throw new BankingDataException("Phone number must be valid");
         }
         
         this.customerName = customerName;
-        this.customerEmail = customerEmail;
-        this.contactNumber = contactNumber;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
     
     private boolean isValidPhone(String phone) {
@@ -37,6 +37,6 @@ public class Customer extends Room {
     
     // Getters and setters
     public String getCustomerName() { return customerName; }
-    public String getCustomerEmail() { return customerEmail; }
-    public String getContactNumber() { return contactNumber; }
+    public String getEmail() { return email; }
+    public String getPhoneNumber() { return phoneNumber; }
 }

@@ -6,12 +6,12 @@ public class Entity {
     private Date createdDate;
     private Date updatedDate;
     
-    public Entity(int id, Date createdDate, Date updatedDate) throws HotelDataException {
+    public Entity(int id, Date createdDate, Date updatedDate) throws BankingDataException {
         if (id <= 0) {
-            throw new HotelDataException("ID must be greater than 0");
+            throw new BankingDataException("ID must be greater than 0");
         }
         if (createdDate == null || updatedDate == null) {
-            throw new HotelDataException("Dates cannot be null");
+            throw new BankingDataException("Dates cannot be null");
         }
         
         this.id = id;
@@ -24,9 +24,9 @@ public class Entity {
     public Date getCreatedDate() { return createdDate; }
     public Date getUpdatedDate() { return updatedDate; }
     
-    public void setUpdatedDate(Date updatedDate) throws HotelDataException {
+    public void setUpdatedDate(Date updatedDate) throws BankingDataException {
         if (updatedDate == null) {
-            throw new HotelDataException("Updated date cannot be null");
+            throw new BankingDataException("Updated date cannot be null");
         }
         this.updatedDate = updatedDate;
     }
